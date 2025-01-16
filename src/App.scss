@@ -1,0 +1,172 @@
+// Global Styles
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin rounded-shadow {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  @mixin padding-x($value) {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  
+  @mixin margin-bottom($value) {
+    margin-bottom: $value;
+  }
+  
+  @mixin font-gray($color) {
+    color: $color;
+    font-weight: 700;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgba(0, 140, 194, 0.15);
+    color: #333;
+  }
+  
+  // Utility Classes
+  .flex {
+    @include center-flex;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .max-w-md {
+    max-width: 28rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-gray-700 {
+    @include font-gray(#4a5568);
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .mb-4 {
+    @include margin-bottom(1rem);
+  }
+  
+  .mb-6 {
+    @include margin-bottom(1.5rem);
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .py-2 {
+    padding: 0.5rem 0;
+  }
+  
+  .bg-gray-100 {
+    background-color: #f7fafc;
+  }
+  
+  .bg-white {
+    background-color: #fff;
+  }
+  
+  .shadow-md {
+    @include rounded-shadow;
+  }
+  
+  .rounded {
+    border-radius: 0.5rem;
+  }
+  
+  .px-8 {
+    @include padding-x(2rem);
+  }
+  
+  .pt-6 {
+    padding-top: 1.5rem;
+  }
+  
+  .pb-8 {
+    padding-bottom: 2rem;
+  }
+  
+  // Image Styles (Updated)
+  .image-full {
+    width: 720px;
+height: 1024px;
+gap: 0px;
+opacity: 0px;
+
+     // Ensure the image is visible
+  }
+  
+  // Container Style (Flex and Full Height for Both Sides)
+  .con {
+    width: Fixed (720px)px;
+height: Fixed (1,024px)px;
+left: 720px;
+padding: var(--7) var(--9) var(--7) var(--9);
+gap: var(--6);
+opacity: 0px;
+
+
+  }
+  .color{background: linear-gradient(0deg, var(--background-surface, #FBFCFE), var(--background-surface, #FBFCFE)),
+    radial-gradient(78.33% 53.72% at 11.15% 0%, rgba(0, 140, 194, 0.15) 0%, rgba(0, 140, 194, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    }
+  .flex-container {
+    
+
+    display: flex;
+    height: 100vh; // Full height of the screen
+  }
+  
+  .left-side, .right-side {
+    flex: 1; // Each side takes up 50% of the width
+  }
+  
+  .left-side {
+    position: relative; // Ensures the image is contained within its parent
+  }
+  
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  
+  // Responsive Styles
+  @media (max-width: 1024px) {
+    .flex-container {
+      flex-direction: column; // Stack the content on smaller screens
+    }
+  
+    .image-full {
+      height: 50vh; // Adjust the image height to 50% of viewport height
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .image-full {
+      height: 40vh; // Further reduce the image height for smaller screens
+    }
+  }
+  

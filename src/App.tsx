@@ -6,6 +6,7 @@ import './App.scss';
 import SignInPage from './admin/SignInPage';
 import ForgetPassword from './admin/ForgetPassword';
 import ResetPassword from './admin/ResetPassword';
+import RequestSubmitted from './admin/RequestSubmitted';
 const App: React.FC = () => {
   return (
     <Router>
@@ -15,6 +16,8 @@ const App: React.FC = () => {
         <Route path="/request-access" element={<RequestAccessPage />} />
         <Route path='/forget-password' element={<ForgetPassword/>} />
         <Route path='/reset-password' element={<ResetPassword/>} />
+        <Route path='/request-submitted' element={<RequestSubmitted/>} />
+
       </Routes>
     </Router>
   );

@@ -30,7 +30,7 @@ const SignUpPage: React.FC = () => {
         <img
           src={home}
           alt="Shipping label being applied"
-          className="image-full"
+          className="image-full fixed"
         />
       </div>
 
@@ -74,7 +74,7 @@ const SignUpPage: React.FC = () => {
             id="email"
             name="email"
             type="email"
-            placeholder="john.doe@example.com"
+            placeholder="  john.doe@example.com"
             className="mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full"
           />
           {/* Display error message if validation fails */}

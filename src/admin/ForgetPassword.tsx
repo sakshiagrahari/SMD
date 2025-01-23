@@ -33,7 +33,7 @@ const ForgetPassword: React.FC = () => {
         <img
           src={home}
           alt="Shipping label being applied"
-          className="image-full" // Ensure the image takes full height
+          className="image-full fixed"
         />
       </div>
 

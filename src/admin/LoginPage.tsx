@@ -3,8 +3,9 @@ import InputField from '../components/InputField';
 import Button from '../components/Button';
 import home from '../assets/home.png';
 import logo from '../assets/logo.png';
-import eye from '../assets/eye.png';  
 import { Link } from 'react-router';// Assuming you have the eye icon in your assets
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 // import eyeOffIcon from '../assets/eye-off-icon.png';  // Assuming you have the eye-off icon in your assets
 
 const LoginPage: React.FC = () => {
@@ -22,10 +23,10 @@ const LoginPage: React.FC = () => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+ 
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
 
   const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRememberMe(e.target.checked);
@@ -38,7 +39,7 @@ const LoginPage: React.FC = () => {
         <img
           src={home}
           alt="Shipping label being applied"
-          className="h-full w-full object-cover"
+          className="image-full fixed"
         />
       </div>
 
@@ -100,13 +101,13 @@ const LoginPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="absolute inset-y-0 right-0 px-3 py-2 text-gray-600 focus:outline-none"
+                    className="absolute inset-y-0 right-3 px-3 py-2 text-gray-600 focus:outline-none"
                   >
-                    <img
-                      src={showPassword ? eye : eye}
-                      alt="Toggle visibility"
-                      className="h-5 w-5"
-                    />
+                    {showPassword ? (
+                      <Visibility className="h-5 w-5 text-gray-600" />
+                    ) : (
+                      <VisibilityOff className="h-5 w-5 text-gray-600" />
+                    )}
                   </button>
                 </div>
               </div>

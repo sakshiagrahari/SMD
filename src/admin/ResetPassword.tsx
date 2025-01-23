@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import InputField from '../components/InputField';
-import Button from '../components/Button';
-import home from '../assets/home.png';
-import logo from '../assets/logo.png';
-import eye from '../assets/eye.png';  
+import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import InputField from "../components/InputField";
+import Button from "../components/Button";
+import home from "../assets/home.png";
+import logo from "../assets/logo.png";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const ResetPassword: React.FC = () => {
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
-      confirmPassword: '',
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Email is required'),
-      password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string()
+        .min(8, "Password must be at least 8 characters")
+        .required("Password is required"),
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), undefined], 'Passwords must match')
-        .required('Confirm Password is required'),
+        .oneOf([Yup.ref("password"), undefined], "Passwords must match")
+        .required("Confirm Password is required"),
     }),
     onSubmit: (values) => {
-      console.log('Form submitted with values:', values);
-      // handle form submission logic (e.g., send request to API)
+      console.log("Form submitted with values:", values);
+      // Handle form submission logic (e.g., send request to API)
     },
   });
 
@@ -40,7 +45,7 @@ const ResetPassword: React.FC = () => {
         <img
           src={home}
           alt="Shipping label being applied"
-          className="h-full w-full object-cover"
+          className="image-full fixed"
         />
       </div>
 
@@ -57,13 +62,15 @@ const ResetPassword: React.FC = () => {
           </div>
 
           <form
-            onSubmit={formik.handleSubmit} // Use Formik's handleSubmit
+            onSubmit={formik.handleSubmit}
             className="space-y-6 mt-1 block w-full bg-gray-100 px-8 py-6 border border-gray-300 rounded-md shadow-sm"
           >
             <div>
-              <h3 className="text-2xl font-bold text-start text-gray-600">Forgot your password</h3>
+              <h3 className="text-2xl font-bold text-start text-gray-600">
+                Forgot your password
+              </h3>
               <p className="text-start text-gray-400 mb-6">
-                Enter a new password to reset the password on your account. 
+                Enter a new password to reset the password on your account.
               </p>
               <div className="w-full mb-4">
                 <label
@@ -99,7 +106,7 @@ const ResetPassword: React.FC = () => {
                     id="password"
                     label=""
                     name="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     placeholder="••••••••"
                     value={formik.values.password}
                     onChange={formik.handleChange}
@@ -108,13 +115,13 @@ const ResetPassword: React.FC = () => {
                   <button
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="absolute inset-y-0 right-0 px-3 py-2 text-gray-600 focus:outline-none"
+                    className="absolute inset-y-0 right-3 px-3 py-2 text-gray-600 focus:outline-none"
                   >
-                    <img
-                      src={showPassword ? eye : eye}
-                      alt="Toggle visibility"
-                      className="h-5 w-5"
-                    />
+                    {showPassword ? (
+                      <Visibility className="h-5 w-5 text-gray-600" />
+                    ) : (
+                      <VisibilityOff className="h-5 w-5 text-gray-600" />
+                    )}
                   </button>
                 </div>
                 {formik.touched.password && formik.errors.password ? (
@@ -134,7 +141,7 @@ const ResetPassword: React.FC = () => {
                     id="confirmPassword"
                     label=""
                     name="confirmPassword"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     placeholder="••••••••"
                     value={formik.values.confirmPassword}
                     onChange={formik.handleChange}
@@ -143,13 +150,13 @@ const ResetPassword: React.FC = () => {
                   <button
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="absolute inset-y-0 right-0 px-3 py-2 text-gray-600 focus:outline-none"
+                    className="absolute inset-y-0 right-3 px-3 py-2 text-gray-600 focus:outline-none"
                   >
-                    <img
-                      src={showPassword ? eye : eye}
-                      alt="Toggle visibility"
-                      className="h-5 w-5"
-                    />
+                    {showPassword ? (
+                      <Visibility className="h-5 w-5 text-gray-600" />
+                    ) : (
+                      <VisibilityOff className="h-5 w-5 text-gray-600" />
+                    )}
                   </button>
                 </div>
                 {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
@@ -167,7 +174,7 @@ const ResetPassword: React.FC = () => {
           </form>
 
           <p className="text-center text-sm text-gray-900 mt-6">
-            This solution is powered by{' '}
+            This solution is powered by{" "}
             <a href="#" className="text-sky-500 underline">
               3PL ACE™
             </a>

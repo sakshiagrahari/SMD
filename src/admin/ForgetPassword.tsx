@@ -15,8 +15,6 @@ const ForgetPassword: React.FC = () => {
     setEmail(e.target.value);
   };
 
-  console.log("testinggggggggg")
-
   // Handle form submission (for sign-up)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
